@@ -1,0 +1,52 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Proyect {
+  id: Int!
+  name: String!
+  description: String!
+  employeeId: Float
+  employee: Employee
+}
+
+type Employee {
+  id: Float!
+  name: String!
+  dateStarted: String!
+  proyects: [Proyect!]
+}
+
+type Query {
+  findAllEmployees: [Employee!]!
+  findOneEmployee(id: Float!): Employee!
+  upload: String!
+  findAllProyects: [Proyect!]!
+  findOneProyect(id: Int!): Proyect!
+  transcode: String!
+}
+
+type Mutation {
+  createEmployee(createEmployeeInput: CreateEmployeeInput!): Employee!
+  createProyect(createProyectInput: CreateProyectInput!): Proyect!
+  updateProyect(updateProyectInput: UpdateProyectInput!): Proyect!
+  removeProyect(id: Int!): Proyect!
+}
+
+input CreateEmployeeInput {
+  name: String!
+  dateStarted: String!
+}
+
+input CreateProyectInput {
+  name: String!
+  description: String!
+  employeeId: Int!
+}
+
+input UpdateProyectInput {
+  name: String
+  description: String
+  employeeId: Int
+  id: Int!
+}
